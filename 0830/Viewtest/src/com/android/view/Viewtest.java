@@ -22,7 +22,6 @@ public class Viewtest extends Activity implements OnClickListener, OnCheckedChan
         RadioGroup r_group = (RadioGroup)findViewById(R.id.radio_group);
         r_group.setOnCheckedChangeListener(this);
         
-        
         //Button オブジェクト取得
         Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(this);
