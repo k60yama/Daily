@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Viewtest!</string>
+    <string name="app_name">Viewtest</string>
+
+    <string name="test1">テスト１</string>
+	<string name="test2">テスト２</string>
+	<string name="test3">テスト３</string>
+    
+</resources>

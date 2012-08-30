@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button 
+        android:text="@string/test1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />"
+
+	<Button 
+        android:text="@string/test2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/button2" />
+	
+	<Button 
+        android:text="@string/test3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
+
+	<TextView 
+	    android:text="宛先:"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/sendto_label"
+	    android:visibility="gone" />
+	
+	<EditText
+	    android:hint="(例)localpart@android.com"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/sendto"
+	    android:visibility="gone" />
+	
+</LinearLayout>
