@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button 
+        android:text="@string/test1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
+
+	<Button 
+        android:text="@string/test2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/button2" />
+	
+	<Button 
+        android:text="@string/test3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
+
+	
+	
+	<RadioGroup 
+	    android:id="@+id/radio_group"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" 
+	    android:orientation="horizontal">
+	    
+	    <RadioButton 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/select1"
+	        android:text="@string/select1"
+	        android:checked="true" />
+	    
+	    <RadioButton 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/select2"
+	        android:text="@string/select2" />
+	    
+	</RadioGroup>
+	
+	<TextView 
+	    android:text="@string/sendto_label"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/sendto_label"
+	    android:visibility="gone" />
+	
+	<EditText
+	    android:hint="@string/sendto_hint"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/sendto"
+	    android:visibility="gone" />
+	
+	<Button 
+	    android:text="test4"
+	    android:layout_width="100dp"
+	    android:layout_height="wrap_content" />
+	
+</LinearLayout>
