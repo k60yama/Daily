@@ -7,10 +7,14 @@
     <string name="test1">テスト１</string>
 	<string name="test2">テスト２</string>
 	<string name="test3">テスト３</string>
+<<<<<<< HEAD
 	<string name="sendto_label">宛先：</string>
 	<string name="sendto_hint">(例)example@android.com</string>
     <string name="select1">選択１</string>
     <string name="select2">選択２</string>
 	
 	
+=======
+    
+>>>>>>> origin/master
 </resources>

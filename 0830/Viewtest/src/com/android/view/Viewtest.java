@@ -23,7 +23,7 @@ public class Viewtest extends Activity implements OnClickListener, OnCheckedChan
         r_group.setOnCheckedChangeListener(this);
         
         //Button オブジェクト取得
-        Button button1 = (Button)findViewById(R.id.button1);
+        Button button1 = (Button)findViewById(R.id.button1);        
         button1.setOnClickListener(this);
     }
 
@@ -31,6 +31,7 @@ public class Viewtest extends Activity implements OnClickListener, OnCheckedChan
 	//Button押下時のインスタンスメソッド
 	public void onClick(View view) {
 		
+		/*
 		Button button2 = (Button)findViewById(R.id.button2);
 		
 		if(button2.getVisibility() != View.VISIBLE){
@@ -38,9 +39,6 @@ public class Viewtest extends Activity implements OnClickListener, OnCheckedChan
 		}else{
 			button2.setVisibility(View.GONE);
 		}
-		
-		
-		/*
 		View[] items = {
 				(TextView)findViewById(R.id.sendto_label),
 				(EditText)findViewById(R.id.sendto)

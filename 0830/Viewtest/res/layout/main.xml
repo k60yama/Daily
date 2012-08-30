@@ -8,7 +8,11 @@
         android:text="@string/test1"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/button1" />
+=======
+        android:id="@+id/button1" />"
+>>>>>>> origin/master
 
 	<Button 
         android:text="@string/test2"
@@ -23,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button3" />
 
+<<<<<<< HEAD
 	
 	
 	<RadioGroup 
@@ -48,21 +53,32 @@
 	
 	<TextView 
 	    android:text="@string/sendto_label"
+=======
+	<TextView 
+	    android:text="宛先:"
+>>>>>>> origin/master
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:id="@+id/sendto_label"
 	    android:visibility="gone" />
 	
 	<EditText
+<<<<<<< HEAD
 	    android:hint="@string/sendto_hint"
+=======
+	    android:hint="(例)localpart@android.com"
+>>>>>>> origin/master
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:id="@+id/sendto"
 	    android:visibility="gone" />
 	
+<<<<<<< HEAD
 	<Button 
 	    android:text="test4"
 	    android:layout_width="100dp"
 	    android:layout_height="wrap_content" />
 	
+=======
+>>>>>>> origin/master
 </LinearLayout>
