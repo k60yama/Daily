@@ -17,16 +17,11 @@ public final class R {
         public static final int button1=0x7f050000;
         public static final int button2=0x7f050001;
         public static final int button3=0x7f050002;
-<<<<<<< HEAD
         public static final int radio_group=0x7f050003;
         public static final int select1=0x7f050004;
         public static final int select2=0x7f050005;
         public static final int sendto=0x7f050007;
         public static final int sendto_label=0x7f050006;
-=======
-        public static final int sendto=0x7f050004;
-        public static final int sendto_label=0x7f050003;
->>>>>>> origin/master
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -34,13 +29,10 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040001;
         public static final int hello=0x7f040000;
-<<<<<<< HEAD
         public static final int select1=0x7f040007;
         public static final int select2=0x7f040008;
         public static final int sendto_hint=0x7f040006;
         public static final int sendto_label=0x7f040005;
-=======
->>>>>>> origin/master
         public static final int test1=0x7f040002;
         public static final int test2=0x7f040003;
         public static final int test3=0x7f040004;

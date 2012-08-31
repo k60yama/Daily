@@ -46,46 +46,57 @@
 		        android:layout_marginRight="5dp"
 		        android:layout_marginLeft="5dp" />
 		    
-		    <TableLayout 
+		    <TextView 
+			    android:text="@string/exec_label"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="10dp" />
+		    
+		    
+		    <RadioGroup 
+			    android:id="@+id/exec_group"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal" >
+			            
+			    <RadioButton 
+			       android:id="@+id/save"
+			       android:text="@string/save"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"
+			       android:layout_marginRight="20dp" />
+			            
+			    <RadioButton 
+			       android:id="@+id/sms"
+			       android:text="@string/sms"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content" />
+			</RadioGroup>
+			
+		    <TextView
+		        android:id="@+id/sendto_label"
+		        android:text="@string/sendto_label"
+		        android:visibility="gone"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="5dp"  />
+		    
+		    <EditText 
+		        android:id="@+id/sendto"
+		        android:hint="@string/sendto_hint"
+		        android:visibility="gone"
+		        android:background="@drawable/border"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content" >
-		        
-		        <TableRow>
-			        <TextView 
-			            android:text="@string/exec_label"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:layout_marginTop="10dp" />
-			    </TableRow>
-			        
-		        <TableRow>
-			        <RadioGroup 
-			            android:id="@+id/exec_group"
-			            android:layout_width="match_parent"
-			            android:layout_height="wrap_content"
-			            android:orientation="horizontal" >
-			            
-			            <RadioButton 
-			                android:id="@+id/save"
-			                android:text="@string/save"
-			                android:layout_width="wrap_content"
-			                android:layout_height="wrap_content"
-			                android:layout_marginRight="20dp" />
-			            
-			            <RadioButton 
-			                android:id="@+id/sms"
-			                android:text="@string/sms"
-			                android:layout_width="wrap_content"
-			                android:layout_height="wrap_content" />
-			        </RadioGroup>
-		        </TableRow>
-		    </TableLayout>
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="5dp"
+		        android:layout_marginLeft="5dp" />
 		    
 		    <Button 
 		        android:id="@+id/savebutton"
 		        android:text="@string/buttonlabel"
 		        android:layout_width="100dp"
 		        android:layout_height="wrap_content"
-		        android:layout_marginTop="5dp" />		    
+		        android:layout_marginTop="10dp" />
+		    	    
 		</LinearLayout>
 </ScrollView>

@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Viewtest extends Activity implements OnClickListener, OnCheckedChangeListener {
     /** Called when the activity is first created. */

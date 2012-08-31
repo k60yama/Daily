@@ -15,9 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MemoActivity extends Activity implements OnClickListener {
+public class MemoActivity extends Activity implements OnClickListener,OnCheckedChangeListener {
 
 	//エラーメッセージ
 	public static String err_msg;
@@ -43,6 +45,12 @@ public class MemoActivity extends Activity implements OnClickListener {
         
         //Buttonオブジェクトにクリックリスナーを設定
         button.setOnClickListener(this);
+        
+        //RadioGroupオブジェクト取得
+        RadioGroup exec = (RadioGroup)findViewById(R.id.exec_group);
+        
+        //RadioGroupオブジェクトにチェックリスナーを設定
+        exec.setOnCheckedChangeListener(this);
     }
 
     //クリック処理
@@ -69,27 +77,32 @@ public class MemoActivity extends Activity implements OnClickListener {
 		//ラジオボタン取得
 		RadioButton exec_button = (RadioButton)findViewById(exec.getCheckedRadioButtonId());
 		
-		
 		//終了メッセージ初期化
-		String msg;
+		String msg = "";
 		
 		//選択別処理
 		switch(exec_button.getId()){
 		case R.id.save:
 			
-			saveMemo(subject,body);			//保存処理
+			//保存処理
+			saveMemo(subject,body);			
 			
-			msg = "保存処理が成功しました。";		//終了処理
+			//終了メッセージ表示
+			msg = "保存処理が成功しました。";
 			msgView(msg);										
 			break;
 			
 		case R.id.sms:
 			
-			saveMemo(subject,body);							//保存処理
+			//保存処理
+			saveMemo(subject,body);							
 			
-			msg = "保存処理が成功しました。Eメールを起動します。";		//終了処理
-			msgView(msg);										
-			emailMemo(subject,body);						//E-MAIL起動処理
+			//終了メッセージ表示
+			msg = "保存処理が成功しました。Eメールを起動します。";
+			msgView(msg);
+			
+			//E-MAIL起動処理
+			emailMemo(subject,body);
 			break;
 		}
 	}
@@ -118,7 +131,11 @@ public class MemoActivity extends Activity implements OnClickListener {
 				if(items[i].indexOf(",") != -1){
 					items[i].replace(",","■");
 				}
-				out.write(items[i]);			//書き込み
+				
+				//ファイル書き込み
+				out.write(items[i]);
+				
+				//改行orカンマ挿入
 				if((i + 1) == items.length){
 					out.newLine();
 				}else{
@@ -130,16 +147,24 @@ public class MemoActivity extends Activity implements OnClickListener {
 			out.close();
 			
 		}catch(Exception e){
+			
+			//エラーメッセージ表示処理へ
 			err_msg = "Error:書き込み処理に失敗しました。";
-			msgView(err_msg);			//エラーメッセージ表示処理へ
+			msgView(err_msg);			
 		}	
 	}
 	
 	//SMS起動処理
 	public void emailMemo(String subject, String body){
 		
+		//宛先オブジェクト取得
+		EditText sendto = (EditText)findViewById(R.id.sendto);
+		
+		//URI設定(宛先)
+		Uri uri = Uri.parse("mailto:" + sendto.getText().toString());
+		
 		//インテント生成
-		Intent intent = new Intent("android.intent.action.SENDTO",Uri.parse("mailto:"));
+		Intent intent = new Intent("android.intent.action.SENDTO",uri);
 		
 		//付属情報設定
 		intent.putExtra(Intent.EXTRA_SUBJECT, subject);		//件名
@@ -177,7 +202,7 @@ public class MemoActivity extends Activity implements OnClickListener {
 			return itemChk;
 		}
 
-		//実行形態ボタンチェック
+		//実行モードチェック
 		if(exec.getCheckedRadioButtonId() == -1){
 			err_msg = "Error:実行モードが未選択です。";
 			itemChk = false;
@@ -197,5 +222,25 @@ public class MemoActivity extends Activity implements OnClickListener {
 		
 		//メッセージ表示
 		msg.show();
+	}
+
+	@Override
+	//宛先オブジェクト表示・非表示制御
+	public void onCheckedChanged(RadioGroup rGrp, int rid) {
+		
+		//宛先オブジェクト取得
+		View[] sendto_obj = {
+			(TextView)findViewById(R.id.sendto_label),
+			(EditText)findViewById(R.id.sendto)
+		};
+		
+		//表示・非表示制御
+		for(int i = 0; i < sendto_obj.length; i++){
+			if(rid == R.id.save){
+				sendto_obj[i].setVisibility(View.GONE);
+			}else if(rid == R.id.sms){
+				sendto_obj[i].setVisibility(View.VISIBLE);
+			}
+		}
 	}
 }
