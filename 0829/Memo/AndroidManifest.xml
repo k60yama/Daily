@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MemoActivity"
+            android:name=".MemoMain"
             android:label="@string/title_activity_memo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="MemoList" />
+        <activity android:name="MemoActivity" />
     </application>
 
 </manifest>

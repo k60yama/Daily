@@ -12,11 +12,15 @@
     <string name="bodyhint">ここに本文を入力してください。</string>
     <string name="exec_label">実行モード：</string>
     <string name="save">保存</string>
-    <string name="sms">保存してEメール起動</string>
+    <string name="email">保存してEメール起動</string>
     <string name="sendto_label">宛先：</string>
     <string name="sendto_hint">(例)example@android.com</string>
-    <string name="buttonlabel">実行</string>
+    <string name="savelabel">実行</string>
+    <string name="closelabel">閉じる</string>
     
-    	
+    <string-array name="menu">
+        <item>新規メモ作成</item>
+        <item>作成メモ一覧</item>
+    </string-array>
     
 </resources>

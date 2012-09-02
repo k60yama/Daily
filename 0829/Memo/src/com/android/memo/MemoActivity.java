@@ -3,7 +3,8 @@ package com.android.memo;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
@@ -22,7 +23,7 @@ import android.widget.Toast;
 public class MemoActivity extends Activity implements OnClickListener,OnCheckedChangeListener {
 
 	//エラーメッセージ
-	public static String err_msg;
+	private static String err_msg;
 	
 	//無効文字設定
 	public static final String err_moji = "■";
@@ -30,6 +31,11 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 	//空文字チェック
 	public static final String blank_str = "";
 	
+	//ファイル名
+	public static final String FILE_NAME = "MEMO.csv";
+	
+	//実行モードオブジェクト
+	private RadioGroup exec;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,14 +46,16 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
         //Memoレイアウトファイルを指定
         setContentView(R.layout.layout_memo);
         
-        //Buttonオブジェクト取得
-        Button button = (Button)findViewById(R.id.savebutton);
+        //Buttonオブジェクト取得し、クリックリスナーを設定
+        Button save = (Button)findViewById(R.id.savebutton);
+        save.setOnClickListener(this);
         
-        //Buttonオブジェクトにクリックリスナーを設定
-        button.setOnClickListener(this);
+        //Buttonオブジェクト取得し、クリックリスナーを設定
+        Button close = (Button)findViewById(R.id.closebutton);
+        close.setOnClickListener(this);
         
         //RadioGroupオブジェクト取得
-        RadioGroup exec = (RadioGroup)findViewById(R.id.exec_group);
+        exec = (RadioGroup)findViewById(R.id.exec_group);
         
         //RadioGroupオブジェクトにチェックリスナーを設定
         exec.setOnCheckedChangeListener(this);
@@ -57,7 +65,17 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 	@Override
 	public void onClick(View view) {
 		
-		//件名オブジェクト取得
+		//押下ボタン確認
+		if(view.getId() == R.id.closebutton){
+			
+			//アクティビティ終了
+			finish();
+			
+			//強制終了
+			return ;
+		}
+		
+	    //件名オブジェクト取得
 		EditText subject_obj = (EditText)findViewById(R.id.subject);
 		String subject = subject_obj.getText().toString();
 		
@@ -65,13 +83,14 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 		EditText body_obj = (EditText)findViewById(R.id.body);
 		String body = body_obj.getText().toString();
 		
-		//実行形態オブジェクト取得
-		RadioGroup exec = (RadioGroup)findViewById(R.id.exec_group);
-		
 		//必須入力チェックメソッドへ
 		if(!itemChk(subject,body,exec)){
-			msgView(err_msg);	//エラーメッセージ表示処理へ
-			return ;			//強制終了
+			
+			//エラーメッセージ表示処理へ
+			msgView(err_msg);
+			
+			//強制終了
+			return ;		
 		}
 		
 		//ラジオボタン取得
@@ -89,10 +108,11 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 			
 			//終了メッセージ表示
 			msg = "保存処理が成功しました。";
-			msgView(msg);										
+			msgView(msg);
+			finish();
 			break;
 			
-		case R.id.sms:
+		case R.id.email:
 			
 			//保存処理
 			saveMemo(subject,body);							
@@ -108,18 +128,22 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 	}
 	
 	//保存処理
-	public void saveMemo(String subject, String body){
+	private void saveMemo(String subject, String body){
 		
 		//書き出し処理
 		try{
 			//ファイル名指定
-			FileOutputStream stream = openFileOutput("MEMO.csv",MODE_APPEND);
+			FileOutputStream stream = openFileOutput(FILE_NAME,MODE_APPEND);
 			
 			//バッファ領域確保
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(stream));
 			
-			//格納
+			//保存日時設定
+			SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
+			//データ格納
 			String[] items = {
+					date.format(new Date()),
 					subject,
 					body
 			};
@@ -129,7 +153,7 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 				
 				//カンマ混入チェック
 				if(items[i].indexOf(",") != -1){
-					items[i].replace(",","■");
+					items[i] = items[i].replace(",",err_moji);
 				}
 				
 				//ファイル書き込み
@@ -154,8 +178,8 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 		}	
 	}
 	
-	//SMS起動処理
-	public void emailMemo(String subject, String body){
+	//E-MAIL起動処理
+	private void emailMemo(String subject, String body){
 		
 		//宛先オブジェクト取得
 		EditText sendto = (EditText)findViewById(R.id.sendto);
@@ -175,7 +199,7 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 	}
 	
 	//必須入力チェック
-	public boolean itemChk(String subject, String body, RadioGroup exec){
+	private boolean itemChk(String subject, String body, RadioGroup exec){
 		
 		//フラグ変数
 		boolean itemChk;
@@ -214,7 +238,7 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 	}
 	
 	//メッセージ表示処理
-	public void msgView(String msg_txt){
+	private void msgView(String msg_txt){
 		
 		//メッセージ表示設定
 		Toast msg = Toast.makeText(this, msg_txt, Toast.LENGTH_LONG);
@@ -238,7 +262,7 @@ public class MemoActivity extends Activity implements OnClickListener,OnCheckedC
 		for(int i = 0; i < sendto_obj.length; i++){
 			if(rid == R.id.save){
 				sendto_obj[i].setVisibility(View.GONE);
-			}else if(rid == R.id.sms){
+			}else if(rid == R.id.email){
 				sendto_obj[i].setVisibility(View.VISIBLE);
 			}
 		}
