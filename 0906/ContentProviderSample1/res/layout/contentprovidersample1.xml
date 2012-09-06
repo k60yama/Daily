@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <!-- 入力欄レイアウト ここから　 -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TableRow>
+            <TextView 
+                android:text="@string/item_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:hint=""
+                android:id="@+id/item_id"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"  />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                android:text="@string/item_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:hint=""
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                android:text="@string/price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:hint=""
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"  />
+        </TableRow>
+    </TableLayout>
+    <!-- 入力欄レイアウト ここまで -->
+    
+    <!-- 処理別ボタンレイアウト ここから -->
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/registry" 
+	        android:text="@string/registry_label"
+	        android:layout_width="60dp"
+	        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/update" 
+	        android:text="@string/update_label"
+	        android:layout_width="60dp"
+	        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/delete" 
+	        android:text="@string/delete_label"
+	        android:layout_width="60dp"
+	        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/view" 
+	        android:text="@string/view_label"
+	        android:layout_width="60dp"
+	        android:layout_height="wrap_content" />
+    </LinearLayout>
+    <!-- 処理別ボタンレイアウト ここまで -->
+    
+    <!-- 処理結果表示レイアウト ここから -->
+    <TextView 
+        android:id="@+id/result_msg"
+        android:text=""
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" />
+    <!-- 処理結果表示レイアウト ここまで -->
+    
+    <!-- 注文リスト表示レイアウト ここから -->
+    <ScrollView 
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+	    <TableLayout
+	        android:id="@+id/item_list"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content">
+	    </TableLayout>
+    </ScrollView>
+    <!-- 注文リスト表示レイアウト ここまで -->
+    
+</LinearLayout>

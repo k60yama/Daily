@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">ContentProviderSample1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_content_provider_access_sample1">ContentProviderAccessSample1</string>
+    <string name="item_id_label">商品ID：</string>
+    <string name="item_name_label">商品名：</string>
+    <string name="price_label">価格：</string>
+    
+    <string name="registry_label">登録</string>
+	<string name="update_label">更新</string>
+	<string name="delete_label">削除</string>
+	<string name="view_label">表示</string>
+    
+</resources>
