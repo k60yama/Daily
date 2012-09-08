@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">ContentProviderSample2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_content_provider_sample2">ContentProviderSample2Activity</string>
+
+</resources>
