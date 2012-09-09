@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">DialogSample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_dialog_sample">DialogSampleActivity</string>
+    <string name="button1">通常ダイアログ表示</string>
+    <string name="button2">テキストダイアログ表示</string>
+    <string name="button3">単一選択ダイアログ表示</string>
+    <string name="button4">日付選択ダイアログ表示</string>
+    <string name="button5">時間選択ダイアログ表示</string>
+    <string name="button6">プログレスバーダイアログ表示</string>
+
+</resources>
