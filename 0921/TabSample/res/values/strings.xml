@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">TabSample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_tab_sample">TabSample</string>
+    <string name="tab2">タブ２</string>
+    <string name="tab3">タブ３</string>
+
+</resources>
