@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Question18</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Question18</string>
+
+    <string name="setting_tab">設定</string>
+    <string name="view_tab">表示</string>
+    <string name="item_name">商品名　</string>
+    <string name="price">価格　</string>
+    <string name="registry_button">　登録　</string>
+    
+</resources>
